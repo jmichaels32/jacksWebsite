@@ -1,18 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
-import LandingPage from './LandingPage';
-import Page1 from './Page1';
-import Page2 from './Page2';
+// Import Various Pages
+import TestingRandomnessPage from './pages/testing_randomness';
+import Page2 from './pages/Page2';
+
+function LandingPage() {
+  return (
+    <div>
+      <h1>Welcome to Our Website!</h1>
+      <p>This is the landing page of our website. Feel free to explore the different pages.</p>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/testing_randomness">Testing Randomness</Link>
+          </li>
+          <li>
+            <Link to="/Page2">Page 2</Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+}
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/Page1" element={<Page1 />} />
+        <Route path="/testing_randomness" element={<TestingRandomnessPage />} />
         <Route path="/Page2" element={<Page2 />} />
       </Routes>
     </BrowserRouter>
